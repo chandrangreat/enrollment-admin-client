@@ -1,0 +1,32 @@
+<div class="container">
+  <div>
+
+    <h3>Upload a CSV file</h3>
+    <div class="upload-btn-wrapper">
+      <button mat-raised-button color="primary">Upload a file</button>
+      <input id="singleFile" type="file" [fileUploadInputFor]= "fileUploadQueue"/>
+    </div>
+    <br>
+    <br>
+    <mat-file-upload-queue #fileUploadQueue
+        [fileAlias]="file"
+        [httpUrl]="fileUploadLink">
+
+        <mat-file-upload [file]="file" [id]="i" *ngFor="let file of fileUploadQueue.files; let i = index"></mat-file-upload>
+    </mat-file-upload-queue>
+
+  </div>
+
+</div>
+
+<!-- --------------------------------------------- -->
+<!-- <input id="singleFile" type="file" [fileUploadInputFor]= "fileUploadQueue"/>
+<br>
+<br>
+<mat-file-upload-queue #fileUploadQueue
+    [fileAlias]="'file'"
+    [httpUrl]="'http://localhost:8180/jax-rs-jersey-application-sample'">
+
+    <mat-file-upload [file]="file" [id]="i" *ngFor="let file of fileUploadQueue.files; let i = index"></mat-file-upload>
+</mat-file-upload-queue> -->
+
